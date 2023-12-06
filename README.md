@@ -1,0 +1,1 @@
+Project template and architecture based on [this](https://github.com/TheCherno/ProjectTemplate/tree/master) template.
