@@ -8,7 +8,10 @@ workspace "Elau"
    filter "system:windows"
       buildoptions { "/EHsc", "/Zc:preprocessor", "/Zc:__cplusplus" }
 
-OutputDir = "%{cfg.system}-%{cfg.architecture}/%{cfg.buildcfg}"
+outputdir = "%{cfg.system}-%{cfg.architecture}/%{cfg.buildcfg}"
 
-include "Core/Build-Core.lua"
-include "Elau/Build-Elau.lua"
+group "Core"
+   include "External.lua"
+   include "Core/Build-Core.lua"
+group ""
+   include "Elau/Build-Elau.lua"
