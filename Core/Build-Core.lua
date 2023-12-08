@@ -9,7 +9,10 @@ project "Core"
 
    includedirs
    {
-      "src",
+	  "src",
+
+      "../Vendor/imgui",
+      "../Vendor/glfw/include",
 
       "%{IncludeDir.VulkanSDK}",
       "%{IncludeDir.glm}",
@@ -28,7 +31,7 @@ project "Core"
 
    filter "system:windows"
        systemversion "latest"
-       defines { }
+       defines { "WINDOWS" }
 
    filter "configurations:Debug"
        defines { "DEBUG" }

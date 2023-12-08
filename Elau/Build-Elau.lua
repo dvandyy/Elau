@@ -12,8 +12,6 @@ project "Elau"
       "../Vendor/imgui",
       "../Vendor/glfw/include",
 
-      "src",
-
 	  -- Include Core
 	  "../Core/src",
 

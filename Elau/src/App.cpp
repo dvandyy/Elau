@@ -1,6 +1,10 @@
-#include "Core/Core.h"
+#pragma once
 
-int main()
+#include "Core/Application.h"
+#include "Core/EntryPoint.h"
+
+Core::Application* Core::CreateApplication(int argc, char** argv)
 {
-	Core::PrintHelloWorld();
+	Core::Application* app = new Core::Application();
+	return app;
 }
