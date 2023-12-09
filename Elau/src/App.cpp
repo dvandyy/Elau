@@ -5,6 +5,10 @@
 
 Core::Application* Core::CreateApplication(int argc, char** argv)
 {
-	Core::Application* app = new Core::Application();
+	ApplicationSpecification spec;
+	spec.Name = "Elau";
+
+	Core::Application* app = new Core::Application(spec);
+
 	return app;
 }

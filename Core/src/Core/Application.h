@@ -1,15 +1,22 @@
 #pragma once
 
 #include "vulkan/vulkan.h"
+#include <string>
 
 struct GLFWwindow;
 
 namespace Core {
 
+	struct ApplicationSpecification
+	{
+		std::string Name;
+	};
+
+
 	class Application
 	{
 	public:
-		Application();
+		Application(ApplicationSpecification spec);
 		~Application();
 
 		void Run();
@@ -21,6 +28,7 @@ namespace Core {
 		void Shutdown();
 
 	private:
+		std::string m_WindowName;
 		GLFWwindow* m_Window = nullptr;
 		bool m_Running = false;
 	};

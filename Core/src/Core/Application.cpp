@@ -12,7 +12,8 @@ extern bool g_ApplicationRunning;
 
 namespace Core {
 
-	Application::Application()
+	Application::Application(ApplicationSpecification spec)
+		: m_WindowName{ spec.Name }
 	{
 		Init();
 	}
@@ -27,7 +28,7 @@ namespace Core {
 		glfwInit();
 
 		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-		m_Window = glfwCreateWindow(800, 600, "Vulkan window", nullptr, nullptr);
+		m_Window = glfwCreateWindow(800, 600, m_WindowName.c_str(), nullptr, nullptr);
 
 		uint32_t extensionCount = 0;
 		vkEnumerateInstanceExtensionProperties(nullptr, &extensionCount, nullptr);
