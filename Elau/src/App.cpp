@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Core/Application.h"
-#include "Core/EntryPoint.h"
+#include "Core.h"
 
 Core::Application* Core::CreateApplication(int argc, char** argv)
 {
