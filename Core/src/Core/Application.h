@@ -1,9 +1,7 @@
 #pragma once
 
-#include "vulkan/vulkan.h"
 #include <string>
-
-struct GLFWwindow;
+#include <Core/Window.h>
 
 namespace Core {
 
@@ -16,20 +14,16 @@ namespace Core {
 	class Application
 	{
 	public:
-		Application(ApplicationSpecification spec);
-		~Application();
+		Application(const ApplicationSpecification spec);
+		virtual ~Application();
 
 		void Run();
 		void Close();
 		void GetWindow();
 
 	private:
-		void Init();
-		void Shutdown();
-
-	private:
-		std::string m_WindowName;
-		GLFWwindow* m_Window = nullptr;
+		std::string m_DebugName;
+		Window m_Window = Window(WindowProps());
 		bool m_Running = false;
 	};
 
