@@ -1,5 +1,6 @@
-#include "Window.h"
+#include "Core/Window.h"
 
+#include <iostream>
 #include <GLFW/glfw3.h>
 
 namespace Core {
@@ -22,7 +23,14 @@ namespace Core {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
+		glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);
+
+		if (!glfwVulkanSupported())
+		{
+			std::cerr << "GLFW: Vulkan not supported!\n";
+			return;
+		}
 	}
 
 	void Window::Shutdown()

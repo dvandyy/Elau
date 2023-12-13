@@ -1,15 +1,24 @@
-#include "Application.h"
+#include "Core/Application.h"
 
 namespace Core {
+
+	static Core::Application* s_Instance = nullptr;
 
 	Application::Application(ApplicationSpecification spec)
 		:m_DebugName{ spec.Name }
 	{
+		s_Instance = this;
 	}
 
 	Application::~Application()
 	{
 		Close();
+		s_Instance = nullptr;
+	}
+
+	Application& Application::Get()
+	{
+		return *s_Instance;
 	}
 
 	void Application::Run()
