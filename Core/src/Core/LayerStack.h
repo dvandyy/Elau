@@ -8,6 +8,7 @@ namespace Core {
 
 	class LayerStack
 	{
+	public:
 		LayerStack() = default;
 		~LayerStack();
 
